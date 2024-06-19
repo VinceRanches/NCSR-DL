@@ -1,13 +1,5 @@
 # Deep Learning Project Sound classification 
 
-# Project README
-
-## Project Overview
-
-This project aims to process and analyze audio data using various machine learning models. The project includes multiple Jupyter notebooks that guide you through the steps necessary to train and evaluate these models. 
-
-## Getting Started
-
 ### Prerequisites
 
 To run this project, you need to have Anaconda installed. You can download and install Anaconda from [here](https://www.anaconda.com/products/distribution).
