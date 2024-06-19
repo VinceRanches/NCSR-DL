@@ -37,23 +37,23 @@ If you download features and models from Google Drive, ensure that the directory
 ```
 Project
 ├── Audioset
-│ ├── AS_Eval (Only if you download the audio)
-│ ├── AS_Train (Only if you download the audio)
-│ ├── CSVs
-│ ├── Train_Features
-│ └── Eval_Features
+│   ├── AS_Eval (Only if you download the audio)
+│   ├── AS_Train (Only if you download the audio)
+│   ├── CSVs
+│   ├── Train_Features
+│   └── Eval_Features
 ├── Bonus
 ├── Models
 ├── Notebooks
 ├── Scripts
 └── UrbanSound
-├── CSVs
-├── Features
-│ ├── CNN_Features
-│ ├── NN_Features
-│ ├── YamNet_Features
-├── Test
-├── Train
-└── UrbanSound8K (Original Folder)
+    ├── CSVs
+    ├── Features
+    │   ├── CNN_Features
+    │   ├── NN_Features
+    │   └── YamNet_Features
+    ├── Test
+    ├── Train
+    └── UrbanSound8K (Original Folder)
 ```
 
