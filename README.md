@@ -4,6 +4,8 @@
 
 To run this project, you need to have Anaconda installed. You can download and install Anaconda from [here](https://www.anaconda.com/products/distribution).
 
+Download the need features from [here](https://drive.google.com/drive/folders/1vToSq-XES05nR0M9EYnIx2RIOulwXXpi?usp=sharing). (see Directory structure)
+
 ### Setting Up the Environment
 
 1. Create a Conda environment with Python 3.10:
