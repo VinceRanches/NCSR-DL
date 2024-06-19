@@ -36,8 +36,8 @@ Carefully read through the Jupyter notebooks and run them in order. The sequence
 If you download features and models from Google Drive, ensure that the directory structure is arranged as follows:
 
 Project
-├── Audioset
-│ ├── AS_Eval (Only if you download the audio)
+├── Audioset\n
+│ ├── AS_Eval (Only if you download the audio)/n
 │ ├── AS_Train (Only if you download the audio)
 │ ├── CSVs
 │ ├── Train_Features
