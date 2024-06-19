@@ -34,10 +34,10 @@ Carefully read through the Jupyter notebooks and run them in order. The sequence
 ### Directory Structure
 
 If you download features and models from Google Drive, ensure that the directory structure is arranged as follows:
-
+```
 Project
-├── Audioset\n
-│ ├── AS_Eval (Only if you download the audio)/n
+├── Audioset
+│ ├── AS_Eval (Only if you download the audio)
 │ ├── AS_Train (Only if you download the audio)
 │ ├── CSVs
 │ ├── Train_Features
@@ -55,4 +55,5 @@ Project
 ├── Test
 ├── Train
 └── UrbanSound8K (Original Folder)
+```
 
