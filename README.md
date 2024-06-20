@@ -1,10 +1,10 @@
-# Deep Learning Project Sound classification 
+# Deep Learning Project Sound Classification 
 
 ### Prerequisites
 
 To run this project, you need to have Anaconda installed. You can download and install Anaconda from [here](https://www.anaconda.com/products/distribution).
 
-Download the need features from [here](https://drive.google.com/drive/folders/1vToSq-XES05nR0M9EYnIx2RIOulwXXpi?usp=sharing). (see Directory structure)
+Download the needed features from [here](https://drive.google.com/drive/folders/1vToSq-XES05nR0M9EYnIx2RIOulwXXpi?usp=sharing). (see Directory structure)
 
 Download UrbanSound8k dataset from [here](https://urbansounddataset.weebly.com/urbansound8k.html) and extract it the folder UrbanSound(see Directory structure)
 
