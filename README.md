@@ -6,6 +6,8 @@ To run this project, you need to have Anaconda installed. You can download and i
 
 Download the need features from [here](https://drive.google.com/drive/folders/1vToSq-XES05nR0M9EYnIx2RIOulwXXpi?usp=sharing). (see Directory structure)
 
+Download UrbanSound8k dataset from [here](https://urbansounddataset.weebly.com/urbansound8k.html) and extract it the folder UrbanSound(see Directory structure)
+
 ### Setting Up the Environment
 
 1. Create a Conda environment with Python 3.10:
