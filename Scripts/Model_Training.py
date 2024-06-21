@@ -9,18 +9,8 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.models import load_model
 from tensorflow.keras.layers import LeakyReLU
 from deep_audio_features.utils import sound_processing as sp
-# This is called for the last part of visualisation fro models we create out own f1 function
+# This is called for the last part of visualization for models we create our own f1 function
 from sklearn.metrics import f1_score as calculate_f1_score
-
-# Assuming y_val and y_pred are already defined
-# y_val: True labels of the validation set
-# y_pred: Predicted labels of the validation set
-
-# Step 3: Calculate the F1 score
-
-
-
-
 from sklearn.metrics import accuracy_score, confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -225,7 +215,7 @@ def plot_confusion_matrix(model, x_val, y_val, encoder):
     - model: The trained model to be evaluated.
     - x_val: Validation features.
     - y_val: True labels for validation data.
-    - encoder: encoded labels you get them when yoou load the data
+    - encoder: encoded labels you get them when you load the data
 
     Returns:
     - accuracy: The accuracy of the model on the validation data.
