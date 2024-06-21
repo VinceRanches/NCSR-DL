@@ -54,7 +54,7 @@ def load_data(dataset_path, dataset):
     dataset_path (str): The path to the dataset.
 
     Returns:
-    x_train, x_val, y_train, y_val
+    x_train, x_val, y_train, y_val, encodings
     """
     if dataset == "audioset":
         x_train, y_train = load_arrays_and_labels(f'{dataset_path}/Train_Features')
