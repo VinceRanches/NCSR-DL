@@ -12,11 +12,6 @@ from deep_audio_features.utils import sound_processing as sp
 # This is called for the last part of visualisation fro models we create out own f1 function
 from sklearn.metrics import f1_score as calculate_f1_score
 
-# Assuming y_val and y_pred are already defined
-# y_val: True labels of the validation set
-# y_pred: Predicted labels of the validation set
-
-# Step 3: Calculate the F1 score
 
 
 
@@ -163,18 +158,17 @@ def create_model_CNN(input_shape=(128, 81, 1), num_classes=8):
     - input_shape (tuple): Shape of the input data (height, width, channels).
     - num_classes (int): Number of classes for classification.
 
-    Returns:
-    - model (Sequential): Compiled Keras Sequential model.
+
     """
     model = Sequential()
 
-    model.add(Conv2D(32, (3, 3), activation='relu', input_shape=input_shape))
+    model.add(Conv2D(32, (3, 3),strides=(1, 1), padding='same', activation='relu', input_shape=input_shape))
     model.add(MaxPooling2D(2, 2))
     
-    model.add(Conv2D(64, (3, 3), activation='relu'))
+    model.add(Conv2D(64, (3, 3),strides=(1, 1), padding='same', activation='relu'))
     model.add(MaxPooling2D(2, 2))
     
-    model.add(Conv2D(128, (3, 3), activation='relu'))
+    model.add(Conv2D(128, (3, 3),strides=(1, 1), padding='same', activation='relu'))
     model.add(MaxPooling2D(2, 2))
     
     model.add(Flatten())
