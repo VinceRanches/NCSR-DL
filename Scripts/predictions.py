@@ -31,7 +31,7 @@ def get_prediction(file_path, model, model_type):
 
     """
     Stop_Yamnet =  False
-    x,fs = librosa.load(file_path,sr = None)
+    x,fs = librosa.load(file_path,sr = 42000)
 
     classes = ["air_conditioner", "car_horn","children_playing", "dog_bark", "drilling","engine_idling", "gun_shot","jackhammer", "siren", "street_music" ]
     # Load the CSV file
