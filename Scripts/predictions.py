@@ -12,7 +12,7 @@ from Scripts import Feature_Extraction as fe
 from Scripts import Model_Training as mt
 from Scripts import data_loading as dl
 from IPython.display import clear_output
-from deep_audio_features.bin.config import  HOP_LENGTH
+from deep_audio_features.bin.config import WINDOW_LENGTH, HOP_LENGTH
 from sklearn.preprocessing import LabelEncoder
 from deep_audio_features.utils import sound_processing as sp
 from pyAudioAnalysis.MidTermFeatures import directory_feature_extraction as dW
@@ -31,7 +31,7 @@ def get_prediction(file_path, model, model_type):
 
     """
     Stop_Yamnet =  False
-    x,fs = librosa.load(file_path,sr = 42000)
+    x,fs = librosa.load(file_path,sr = None)
 
     classes = ["air_conditioner", "car_horn","children_playing", "dog_bark", "drilling","engine_idling", "gun_shot","jackhammer", "siren", "street_music" ]
     # Load the CSV file
@@ -66,16 +66,21 @@ def get_prediction(file_path, model, model_type):
         # For CNN we have different feature extraction tha fully connected thats why we have this if statement
 
         
+        win_length=int(WINDOW_LENGTH * fs),
         hop_length=int(HOP_LENGTH * fs)
         mels = librosa.feature.melspectrogram(y=x, sr=fs, hop_length=hop_length)
         mels = librosa.power_to_db(mels, ref=np.max)
         mels = np.array(mels)
+
+        mels = mels[:, :81]
         if mels.shape[1] < 81:
             mels = np.pad(mels, ((0, 0), (0, 81 - mels.shape[1])), 'constant')
-        
+
         test = []
         test.append(mels)
         mels = np.array(test)
+        print(test[0].shape)
+        
 
     elif model_type == 'YamNet':
 
