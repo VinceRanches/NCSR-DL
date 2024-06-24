@@ -4,7 +4,7 @@ import os
 from pydub import AudioSegment
 
 """
-The next two functions creaste our labels
+The next two functions create our labels
 
 """
 
@@ -90,8 +90,6 @@ def get_labels(input_csv, ontology_json, output_csv, sound_path):
 
 
 
-
-
 def cut_audio(csv_path, audio_folder, output_folder):
     """
     This function cuts audio segments based on start and end times provided in a CSV file and exports them to the specified folder.
@@ -108,7 +106,7 @@ def cut_audio(csv_path, audio_folder, output_folder):
     os.makedirs(output_folder, exist_ok=True)
 
     """
-    We have very specific columns in the csv file that we need to use to cut the audio files if your code doesn not find it change it
+    We have very specific columns in the csv file that we need to use to cut the audio files if your code does not find it change it
 
 
     """
