@@ -1,13 +1,11 @@
 import os
 import numpy as np
-
 from tensorflow.keras.utils import to_categorical
-
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.utils import shuffle
-encoder = LabelEncoder()
 
+encoder = LabelEncoder()
 
 
 
@@ -17,7 +15,8 @@ def datapreprocessing(x, y, dataset):
 
     y_encoded = le.fit_transform(y)
     y_encoded = to_categorical(y_encoded)
-    # This is needed because of how we dowloaded the data
+    
+    # This is needed because of how we downloaded the data
     if dataset == "YamNet":
       x = np.reshape(x, (len(x), -1))
 
@@ -40,7 +39,6 @@ def load_arrays_and_labels(directory):
                 # Append the array to x and the class name to y
                 x.append(array)
                 y.append(class_name)
-
     return x, y
 
 
@@ -76,4 +74,3 @@ def load_data(dataset_path, dataset):
         x_train, x_val, y_train, y_val = train_test_split(x, y, stratify=y, test_size=0.3, random_state=0)
     
     return x_train, x_val, y_train, y_val, le
-
