@@ -19,7 +19,7 @@ from pyAudioAnalysis.MidTermFeatures import directory_feature_extraction as dW
 
 
 """
-The next two functions is to geth one sample predicttions
+The next two functions are to get one sample predictions
 
 """
 
@@ -27,7 +27,7 @@ def get_prediction(file_path, model, model_type):
 
     """
 
-    This is a function that takes us input the wav file path the model type and the specific pretrained model eit extracts the needed features ands makes predictions live.
+    This is a function that takes as input the wav file path the model type and the specific pre-trained model it extracts the needed features and makes predictions live.
 
     """
     Stop_Yamnet =  False
@@ -54,8 +54,8 @@ def get_prediction(file_path, model, model_type):
         print("File not found in the CSV\n")
         print('############################################################################################')
         """
-        Because the model only takes inputs which we already extracted features because we dont have the p[ackages to run it localy 
-        if we run it in colab we could do it.
+        Because the model only takes inputs which we already extracted features because we don't have the p[ackages to run it locally 
+        if we run it in collab we could do it.
 
          """
         Stop_Yamnet = True
@@ -63,7 +63,7 @@ def get_prediction(file_path, model, model_type):
     
     if model_type == 'CNN':
 
-        # For CNN we have different feature extraction tha fully connected thats why we have this if statement
+        # For CNN we have different feature extractions than the fully connected that is why we have this if statement
 
         
         win_length=int(WINDOW_LENGTH * fs),
@@ -99,7 +99,7 @@ def get_prediction(file_path, model, model_type):
             
     else:
 
-        # Create a  temporary folder because this is hopw the PyaudioAnal;ysis works
+        # Create a  temporary folder because this is how the PyaudioAnalysis works
         with tempfile.TemporaryDirectory() as temp_dir:
                     
             temp_file_path = os.path.join(temp_dir, file_name)
@@ -166,25 +166,20 @@ def One_Sample_Prediction(filename, model_path, model_type):
     get_prediction(filename , model , model_type)
 
 """
-The next oone is for a whole train set prediction
+The next one is for a whole train set prediction
 
 """
 
-def Train_Set_Predictions(model_name,model_type):
-
-    
-    
+def Train_Set_Predictions(model_name,model_type):  
     if model_type == "YamNet":
-
         dataset = "YamNet"
         features_dir = "UrbanSound\\Features\\YamNet_Features\\Test_Features"
         x, y = dl.load_arrays_and_labels(features_dir)
         x, y, le = dl.datapreprocessing(x, y, dataset)
 
     else:
-
         dataset = "urbansound8k"
-        # this specific file has problem it needs to be deleted
+        # This specific file has a problem and it must be deleted
         ut.delete_files_with_prefix("UrbanSound\\Test", "36429")
 
         classes = ["children_playing", "drilling", "street_music", "siren", "gun_shot", "car_horn", "air_conditioner", "engine_idling",  "dog_bark", "jackhammer"]
@@ -221,7 +216,4 @@ def Train_Set_Predictions(model_name,model_type):
     clear_output()
     
     #Make predictions
-    mt.plot_confusion_matrix(model,x,y,le)
-
-    
-    
+    mt.plot_confusion_matrix(model,x,y,le)  
