@@ -5,9 +5,6 @@ import pandas as pd
 import numpy as np
 import csv
 
-
-
-
 # Used for flagging files after download
 
 def flag_old_files(folder_path, cutoff_date):
@@ -23,14 +20,13 @@ def flag_old_files(folder_path, cutoff_date):
 
 
 """
-Move the files which are flagged to a folder withprefix FLAG aslo you need to put these manually so we can edit them
+Move the files that are flagged to a folder with prefix FLAG also you need to put these manually so we can edit them
 on the Big_File_cut.ipynb
 
 """
 
 
 def move_files_with_prefix(source_folder, target_folder, prefix):
-    
     # Create the target folder if it doesn't exist
     if not os.path.exists(target_folder):
         os.makedirs(target_folder)
@@ -47,7 +43,7 @@ def move_files_with_prefix(source_folder, target_folder, prefix):
             print(f"Moved {file} to {target_folder}")
 
 """
-We need this before extracting features for aur NN whith pyaudio analysis couse some of them have problems
+We need this before extracting features for aur NN with PyAudioAnalysis cause some of them have problems
 these are the files
 
 children_playing_folder = 'Train/children_playing'
@@ -67,7 +63,6 @@ delete_files_with_prefix(jackhammer_folder, jackhammer_prefix)
 
 """
 def delete_files_with_prefix(folder, prefix):
-    
     for filename in os.listdir(folder):
         if filename.startswith(prefix):
             file_path = os.path.join(folder, filename)
@@ -79,7 +74,7 @@ def delete_files_with_prefix(folder, prefix):
 
 
 """
-This scripts and the next one is used for debuging
+This script and the next one are used for debugging
 
 """
 
@@ -115,7 +110,7 @@ def exist_and_delete(file_path):# Check if the file exists before attempting to 
 
 
 """
-These two functions create the folders and category for each file it can be apllied both audioset andd urban sound
+These two functions create the folders and categories for each file it can be applied to both audioset and urban sound
 dataset is a list with the names of the classes for example 
 
 #dataset = "audioset"
@@ -134,7 +129,6 @@ else:
 """
 
 def move_to_class_folder(csv_file,folder_path, dataset):
-    
     # Read CSV file into pandas DataFrame
     df = pd.read_csv(csv_file)
 
@@ -167,18 +161,16 @@ def move_to_class_folder(csv_file,folder_path, dataset):
 
 """
 
------------------This is only for urbansound to seperate the files into train test folder---------------
+-----------------This is only for urbansound to separate the files into train test folder---------------
 
 
 """
 
 
 def move_train_test_folder(csv_file, destination_folder, audio_dir):
-
-
     """ 
     
-    Takes input where the csv is located of train and where the test ,  
+    Takes input where the csv is located on train and where the test ,  
                                                       where you want to save them , 
                                                       where all audio files are located
     """
@@ -189,7 +181,7 @@ def move_train_test_folder(csv_file, destination_folder, audio_dir):
     if not os.path.exists(destination_folder):
         os.makedirs(destination_folder)
 
-    # Read the CSV file and create a dictionary with slice_file_name as key and folder as value
+    # Read the CSV file and create a dictionary with slice_file_name as the key and folder as value
     wav_mapping = {}
     with open(csv_file, 'r') as file:
         reader = csv.DictReader(file)
@@ -214,10 +206,9 @@ def move_train_test_folder(csv_file, destination_folder, audio_dir):
 
 
 
-""" Read the csv and then this will make a train  test split to use """
+""" Read the csv and then this will make a train test split to use """
 
 def split_8k_train_test(input_csv,  train_output_csv,  test_output_csv):
-
     # Read the original CSV file
     df = pd.read_csv(input_csv)
     np_array = df.to_numpy()
