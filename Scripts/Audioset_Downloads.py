@@ -2,24 +2,18 @@ import os
 import csv
 import subprocess
 
-
-
 # Check if yt-dlp is installed correctly (you can add more robust checks if needed)
 
-
-try:
-    
+try:    
     import yt_dlp as youtube_dl
-
 except ImportError:
-
     raise EnvironmentError(
         """
 
-        These commands are MANDATORY TO RUN in colab or whichever other cloud environment where you are downloading the dataset, or else you get an error:
+        These commands are MANDATORY TO RUN in collab or whichever other cloud environment where you are downloading the dataset, or else you get an error:
         __________________________________________________________________________________________________________________________________________________
         
-        Clonethis repo:
+        Clone this repo:
 
         !git clone https://github.com/lukefahr/audioset.git
         
@@ -32,10 +26,6 @@ except ImportError:
 
         """    
     )
-
-
-
-
 
 
 def download_and_cut_audioset(train_csv_path, output_dir, flag_file=None):
@@ -52,7 +42,6 @@ def download_and_cut_audioset(train_csv_path, output_dir, flag_file=None):
     """
     
     def download_audio(segment_id, start_time, end_time, output_file):
-        
         if os.path.exists(output_file):
             print(f"File {output_file} already exists. Skipping download.")
             return
@@ -64,6 +53,7 @@ def download_and_cut_audioset(train_csv_path, output_dir, flag_file=None):
             'extractaudio': True,
             'audioformat': 'mp3',  
         }
+        
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             try:
                 ydl.download(['https://www.youtube.com/watch?v=' + segment_id])
@@ -82,21 +72,18 @@ def download_and_cut_audioset(train_csv_path, output_dir, flag_file=None):
         reader = csv.reader(csvfile)
         next(reader)  # Skip header row
         for row in reader:
-            # This is where we have evything in CSV
+            # This is where we have everything in CSV
             segment_id = row[0]  
             start_time = row[1]   
             end_time = row[2]     
             # Check if the segment ID matches the specified one to start downloading
-            # In case omethign stops the proccess and you want to start from a specific file
+            # In case something stops the process and you want to start from a specific file
             if flag_file and segment_id == flag_file:
                 start_downloading = True
 
             # If start_downloading is True, start downloading
             if start_downloading:
-                # Download audio segment and save directly to the Audioset folder
-                
+                # Download the audio segment and save it directly to the Audioset folder
                 output_file = os.path.join(output_dir, f"{segment_id}.mp3")
                 download_audio(segment_id, start_time, end_time, output_file)
                 print(f"Downloaded segment {segment_id} to {output_file}")
-
-
