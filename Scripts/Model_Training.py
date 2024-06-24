@@ -9,13 +9,9 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.models import load_model
 from tensorflow.keras.layers import LeakyReLU
 from deep_audio_features.utils import sound_processing as sp
-# This is called for the last part of visualisation fro models we create out own f1 function
+
+# This is called for the last part of visualisation for models we create our own f1 function
 from sklearn.metrics import f1_score as calculate_f1_score
-
-
-
-
-
 from sklearn.metrics import accuracy_score, confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -45,7 +41,6 @@ def f1_score(y_true, y_pred):
 
 def model_load(model_path):
     model = load_model(model_path, custom_objects={'f1_score': f1_score})
-      # Load the model
     print(model.summary())
     
     return model 
@@ -183,7 +178,7 @@ def create_model_CNN(input_shape=(128, 81, 1), num_classes=8):
 
 
 """
-The next scripts are for visualisation
+The next scripts are for visualization
 
 """
 
@@ -195,7 +190,7 @@ def plot_training_history(training_score, val_score, graph_name):
     Plots the training and validation f1 scores over epochs.
 
     Parameters:
-    training_score (list): List of trainingscores for each epoch.
+    training_score (list): List of training scores for each epoch.
     val_score (list): List of validation cores for each epoch.
     graph_name (str): Name of the graph.
     """
@@ -213,13 +208,13 @@ def plot_training_history(training_score, val_score, graph_name):
 
 def plot_confusion_matrix(model, x_val, y_val, encoder):
     """
-    Evaluates the model on validation data and plots the confusion matrix.
+    Evaluate the model on validation data and plot the confusion matrix.
 
     Parameters:
     - model: The trained model to be evaluated.
     - x_val: Validation features.
     - y_val: True labels for validation data.
-    - encoder: encoded labels you get them when yoou load the data
+    - encoder: encoded labels you get them when you load the data
 
     Returns:
     - accuracy: The accuracy of the model on the validation data.
@@ -252,13 +247,3 @@ def plot_confusion_matrix(model, x_val, y_val, encoder):
     plt.ylabel('Actual label')
     plt.title('Confusion Matrix')
     plt.show()
-
-
-
-
-
-
-
-    
-
-
