@@ -11,18 +11,18 @@ import librosa
 
 
 """
-This function takes as inputu the directorry where you have your files seperated into classes and uses deep audio
+This function takes as input the directory where you have your files separated into classes and uses deep audio
 
-features library to extract and save melspectorgram features to a selected directory also it ahndles files which can not be read 
+features library to extract and save melspectorgram features to a selected directory also it handles files that can not be read 
 
-hop length and window size is the default of deep audio feturres also when a file is smaller tha 128,100 it get zero 
+hop length and window size are the default deep audio features also when a file is smaller than 128,100 it gets zero 
 
-paded so every feature to have the same shape
+padded so every feature has the same shape
 
-Wherever yopu save them the folders should be Train_Features and Eval_Features corespondingly
+Wherever you save them the folders should be Train_Features and Eval_Features correspondingly
 """
 
-def CNN_Features_mel(directory, classes, output_directory): # Wherever you save them the folders should be Train_Features and Eval_Features corespondingly
+def CNN_Features_mel(directory, classes, output_directory): # Wherever you save them the folders should be Train_Features and Eval_Features correspondingly
     failed_files = []
 
     for class_name in classes:
@@ -66,7 +66,7 @@ def CNN_Features_mel(directory, classes, output_directory): # Wherever you save 
 
 """ 
 
-Takes as input the folder path which contains the folder of data where evry folder == class and returns the features in binary files
+Takes as input the folder path which contains the folder of data where every folder == class and returns the features in binary files
 example use ------>   Features_Neural_Network = extract_features_NN('path\\Train_Folder',"path\\Train_NN_Features")    <------ 
 
 !!! Some specific files for urbansound need to be deleted!!!
