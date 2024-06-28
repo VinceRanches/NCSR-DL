@@ -113,18 +113,6 @@ def exist_and_delete(file_path):# Check if the file exists before attempting to 
 These two functions create the folders and categories for each file it can be applied to both audioset and urban sound
 dataset is a list with the names of the classes for example 
 
-#dataset = "audioset"
-dataset = "urbansound8k"
-
-if dataset == "audioset":
-
-    classes = ["Animal Sounds","Human Sounds","Musical Instruments", "Environmental Sounds", "Vehicle Sounds", "Machine and Tool Sounds", "Impact Sounds", "Miscellaneous"]
-
-else:
-    
-    classes = ["children_playing", "drilling", "street_music", "siren", "gun_shot", "car_horn", "air_conditioner", "engine_idling",  "dog_bark", "jackhammer"]
-
-    use it when you want to make files 
 
 """
 
